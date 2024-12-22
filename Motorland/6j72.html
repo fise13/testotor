@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorland - 6J72</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Стили для слайдера */
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            width: 600px; /* Ширина слайдера */
+            margin: 0 auto;
+            overflow: hidden; /* Скрываем изображения, выходящие за пределы контейнера */
+            height: 800px; /* Фиксированная высота слайдера */
+            border-radius: 30px;
+        }
+
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-images img {
+            width: 100%; /* Ширина слайдера */
+            height: 100%; /* Высота слайдера */
+            object-fit: cover; /* Масштабирование изображений без искажения */
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            font-size: 2rem;
+            z-index: 10;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="srs/logo.jpg" alt="Motorland Logo" class="logo">
+            </a>
+        <h1>Двигатель Mitsubishi 6J72</h1>
+        <p>Подробная информация о двигателе 6J72</p>
+    </header>
+
+    <div class="engine-details-container">
+        <!-- Слайдер -->
+        <div class="slider-container">
+            <div class="slider-images">
+                <img src="images/6j72_1.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_2.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_3.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_4.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_5.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_6.jpg" alt="6J72 Engine Image 1">
+                <img src="images/6j72_7.jpg" alt="6J72 Engine Image 1">
+            </div>
+            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="engine-info">
+            <h2>Mitsubishi 6J72</h2>
+            <p><strong>Цена:</strong> от 800,000 тенге</p>
+            <p><strong>Мощность:</strong> Варьируется в зависимости от модели и настроек, обычно около 90–100 л.с.</p>
+            <p><strong>Объем:</strong> 2.0 литра</p>
+            <p><strong>Тип:</strong> Бензиновый</p>
+            <p><strong>Состояние:</strong> Б/у, в хорошем состоянии</p>
+
+            <div class="cta-buttons">
+                <a href="srs/purchase.html" class="cta-btn purchase-btn">
+                    <i class="fa fa-cart-plus"></i> Купить
+                </a>
+                <a href="srs/contact.html" class="cta-btn contact-btn">
+                    <i class="fa fa-phone"></i> Связаться
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript для управления слайдером
+        let currentSlide = 0;
+        const images = document.querySelectorAll('.slider-images img');
+        const totalSlides = images.length;
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            updateSlidePosition();
+        }
+
+        function updateSlidePosition() {
+            const slider = document.querySelector('.slider-images');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+  const engineDetails = document.querySelector('.engine-details-container');
+  const sliderImages = document.querySelectorAll('.slider-images img');
+
+  // Observer to reveal elements on scroll
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Animate only once
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Observe the engine details container and each image
+  observer.observe(engineDetails);
+  sliderImages.forEach(image => observer.observe(image));
+});
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 120, 212, 0.4));
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  min-height: 100vh;
+}
+
+.logo { 
+  border-radius: 12px;
+  width: 120px;
+  height: 70px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.header {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #000000, #222222);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 10; 
+  position: relative; 
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin: 0;
+  animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+  font-weight: bold;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  animation: fadeInUp 2s ease-in-out;
+  font-weight: normal;
+}
+
+.info-box {
+  position: absolute;
+  top: 20px; 
+  right: 20px; 
+  padding: 10px;
+  border-radius: 20px;
+  background: #35ACB4;
+  transition: 1s;
+  clip-path: circle(10% at 90% 20%);
+  z-index: 1000; 
+}
+
+.engine-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.circle {
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  width: 50px; 
+  height: 50px; 
+  background-color: #35ACB4; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  color: white; 
+  font-size: 1.2rem; 
+  transition: 1s;
+}
+
+@media (max-width: 768px) {
+  .circle {
+      width: 40px; 
+      height: 40px; 
+      font-size: 1rem; 
+  }
+
+  .notification-count {
+      width: 15px; 
+      height: 15px; 
+  }
+}
+
+.engine-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  margin: 20px;
+  width: calc(33.33% - 40px);
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.engine-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.engine-card img {
+  width: 500px;
+  height: auto;
+  max-width: 100%;
+  max-height: 300px; 
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.engine-card:hover img {
+  transform: scale(1.08);
+  transition: 0.6s ease-in-out;
+}
+
+.engine-card h3 {
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  color: #0078D4;
+  text-align: center;
+  font-weight: bold;
+}
+
+.engine-card p {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .engine-card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .engine-card {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+.details-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #0078D4, #005BB5);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  align-self: flex-start;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.details-button:hover {
+  background: linear-gradient(135deg, #005BB5, #004087);
+  transform: translateY(-2px);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cta-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #007BFF, #005BB5);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #005BB5, #004087);
+  transform: translateY(-2px);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .engine-card {
+    max-width: 90%;
+  }
+
+  .engine-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .details-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .engine-card {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .engine-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .details-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer {
+  background: linear-gradient(135deg, rgba(220, 217, 217, 0.8), rgba(12, 64, 210, 0.6)); /* Градиент от белого к голубому */
+  color: #fff; /* Цвет текста */
+  text-align: center; /* Центрирование текста */
+  padding: 20px; /* Отступы */
+  border-radius: 12px; /* Закругление углов */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Тень */
+}
+.footer p {
+  font-family: 'Arial', sans-serif; /* Шрифт */
+  font-size: 16px; /* Размер шрифта */
+  margin: 0; /* Убираем отступы */
+}
+.footer p:hover {
+  color: #1a74d3; /* Цвет текста при наведении */
+  cursor: pointer; /* Курсор в виде указателя */
+}         

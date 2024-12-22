@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        .circle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #35ACB4;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,  0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer; /* Указатель, что элемент кликабельный */
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+            background-color: #007B8D;
+        }
+
+        /* Стили для модального окна */
+        .modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 80%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right; /* Выравнивание кнопки закрытия вправо */
+        }
+
+        .close-btn:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle" onclick="openModal()">
+        <i class="fa fa-info-circle"></i>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">Закрыть</button>
+            <h2>О нас</h2>
+            <p>Мы продаем качественные б/у двигатели Subaru серии EJ и не только. Наша компания предоставляет услуги по продаже и обслуживанию двигателей. Мы гарантируем высокое качество наших товаров и услуг.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex'; // Показываем модальное окно
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none'; // Скрываем модальное окно
+        }
+    </script>
+</body>
+</html>
